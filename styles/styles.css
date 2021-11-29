@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Trebuchet MS';
+    size-adjust: 95%;
+    src: local('Trebuchet MS'),
+         local('TrebuchetMS');
+         font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Trebuchet MS';
+    size-adjust: 87%;
+    src: local('Trebuchet MS'),
+         local('TrebuchetMS');
+         font-weight: 400;
+}
+
+:root {
+    /* Typography */
+    --type-detail-all-weight: 700;
+    --type-detail-m-size: 12px;
+    --type-detail-m-lh: 15px;
+    --type-detail-m-transform: uppercase;
+    --type-heading-all-weight: 700;
+    --type-heading-xxl-size: 44px;
+    --type-heading-xxl-lh: 55px;
+    --type-heading-xl-size: 2.25em;
+    --type-heading-xl-lh: 45px;
+    --type-heading-l-size: 28px;
+    --type-heading-l-lh: 35px;
+    --type-heading-m-size: 24px;
+    --type-heading-m-lh: 30px;
+    --type-body-l-size: 18px;
+    --type-body-l-lh: 27px;
+    --type-body-m-size: 16px;
+    --type-body-m-lh: 1.6875;
+
+    /* Spacing */
+    --spacing-s: 16px;
+    --spacing-m: 24px;
+    --spacing-l: 48px;
+    --spacing-xl: 56px;
+    --spacing-xxl: 80px;
+
+    /* Colors */
+    --spectrum-blue: rgb(20, 115, 230);
+
+    /* Grid */
+    --grid-mobile-container-width: 83.4%;
+    --grid-desktop-container-width: 1200px;
+}
+
+body {
+    font-family: 'adobe-clean', 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding-top: 65px;
+    font-size: var(--type-body-m-size);
+    line-height: var(--type-body-m-lh);
+}
+
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 65px;
+    background-color: #FFF;
+    z-index: 2;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    margin: 0;
+}
+
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong,
+h5 strong,
+h6 strong {
+    font-weight: 900;
+}
+
+/* Heading XXL */
+h1 u {
+    font-size: 60px;
+    line-height: 1.3;
+    text-decoration: none;
+}
+
+/* Heading XL */
+h1 {
+    font-size: 45px;
+    line-height: 1.3;
+}
+
+/* Heading L */
+h2 {
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+/* Heading M */
+h3 {
+    font-size: var(--type-heading-m-size);
+    line-height: var(--type-heading-m-lh);
+}
+
+/* Themes */
+.dark {
+    color: white;
+}
+
+/* Utilities */
+.hidden {
+    display: none;
+}
+
+/* Buttons */
+em a {
+  color: black;
+  border: 2px solid;
+  background-color: transparent;
+  border-radius: 16px;
+  display: inline-block;
+  line-height: 28px;
+  padding: 0 14px;
+  text-decoration: none;
+  font-size: 14px;
+  font-style: normal;
+}
+
+/* Primary button over background */
+.dark em a {
+    color: #FFF;
+}
+
+strong a {
+    background: rgb(20, 115, 230);
+    color: white;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 32px;
+    padding: 0 16px;
+    border: none;
+    flex: 0 1 auto;
+    font-weight: 400;
+    text-decoration: none;
+    display: inline-block;
+}
+/* End Buttons */
+
