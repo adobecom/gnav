@@ -1,13 +1,15 @@
 import {
   loadScript,
-  getHelixEnv,
-  debug,
+  getEnv,
   makeLinkRelative,
+  getMetadata,
+  cleanVariations,
+  decorateAnchors,
 } from '../../scripts/scripts.js';
 import createTag from './gnav-utils.js';
 
-const ADOBE_IMG = '<img alt="Adobe" src="/blocks/gnav/adobe-logo.svg">';
-const BRAND_IMG = '<img src="/blocks/gnav/brand-logo.svg">';
+const COMPANY_IMG = '<img alt="Adobe" src="/img/adobe-logo.svg">';
+const BRAND_IMG = '<img src="/img/brand-logo.svg">';
 const SEARCH_ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false">
 <path d="M14 2A8 8 0 0 0 7.4 14.5L2.4 19.4a1.5 1.5 0 0 0 2.1 2.1L9.5 16.6A8 8 0 1 0 14 2Zm0 14.1A6.1 6.1 0 1 1 20.1 10 6.1 6.1 0 0 1 14 16.1Z"></path>
 </svg>`;
@@ -17,7 +19,7 @@ class Gnav {
   constructor(body, el) {
     this.el = el;
     this.body = body;
-    this.env = getHelixEnv();
+    this.env = getEnv();
     this.desktop = window.matchMedia('(min-width: 1200px)');
   }
 
@@ -91,9 +93,7 @@ class Gnav {
     brand.setAttribute('aria-label', brand.textContent);
     brand.textContent = '';
     const { className } = brandBlock;
-    const classNameClipped = className.slice(0, -1);
-    const classNames = classNameClipped.split('--');
-    brand.className = classNames.join(' ');
+    brand.className = className;
     if (brand.classList.contains('logo')) {
       brand.insertAdjacentHTML('afterbegin', BRAND_IMG);
     }
@@ -107,7 +107,7 @@ class Gnav {
     logo.classList.add('gnav-logo');
     logo.setAttribute('aria-label', logo.textContent);
     logo.textContent = '';
-    logo.insertAdjacentHTML('afterbegin', ADOBE_IMG);
+    logo.insertAdjacentHTML('afterbegin', COMPANY_IMG);
     return logo;
   }
 
@@ -373,18 +373,18 @@ async function fetchGnav(url) {
 }
 
 export default async function init(blockEl) {
-  const url = blockEl.getAttribute('data-gnav-source');
-  if (url) {
-    const html = await fetchGnav(url);
-    if (html) {
-      try {
-        const parser = new DOMParser();
-        const gnavDoc = parser.parseFromString(html, 'text/html');
-        const gnav = new Gnav(gnavDoc.body, blockEl);
-        gnav.init();
-      } catch {
-        debug('Could not create global navigation.');
-      }
+  const url = makeLinkRelative(getMetadata('gnav')) || '/gnav';
+  const html = await fetchGnav(url);
+  if (html) {
+    try {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      cleanVariations(doc);
+      decorateAnchors(doc);
+      const gnav = new Gnav(doc.body, blockEl);
+      gnav.init();
+    } catch (e) {
+      console.log('Could not great global navigation', e);
     }
   }
 }

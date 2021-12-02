@@ -506,7 +506,7 @@ button.gnav-toggle:after {
 
   .gnav-navitem a {
     justify-content: unset;
-    line-height: unset;
+    line-height: 1.5;
   }
 
   .gnav-navitem-menu.medium-Variant {
