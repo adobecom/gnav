@@ -41,6 +41,8 @@ header .gnav {
 
 .gnav strong a {
   color: #FFFFFF;
+  text-align: center;
+  justify-content: center;
 }
 
 button.gnav-toggle {
@@ -162,7 +164,7 @@ button.gnav-toggle:after {
 }
 
 .gnav-navitem-menu a {
-  padding: 12px 20px;
+  padding: 6px 20px;
   white-space: nowrap;
 }
 
@@ -459,81 +461,6 @@ button.gnav-toggle:after {
   background-color: #FAFAFA;
 }
 
-/*
- * Large and Section Menu styles
-*/
-.gnav-navitem.large-nav h5 {
-    font-size: 14px;
-    color: #4B4B4B;
-}
-
-.gnav-navitem.large-nav {
-    position: static;
-}
-
-.gnav-navitem.large-nav h5 {
-    border-bottom: 1px solid #E1E1E1;
-    margin-top: 0;
-    margin-bottom: 16px;
-    padding-bottom: 5px;
-}
-  
-.gnav-navitem.has-Menu.is-Open .gnav-menu-container,
-.gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant:scope > div {
-    display: flex;
-    flex-flow: column wrap;
-    padding: 20px 20px 30px;
-}
-
-.gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant {
-    padding-top: 0;
-    left: 0;
-    right: 0;
-}
-
-.gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant > div div ul {
-    margin: 0;
-}
-
-.gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant > div div h5 {
-    margin: 32px 0 0 20px;
-}
-
-.gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant > div div:first-of-type h5 {
-    margin-top: 0;
-    margin-right: 5px;
-}
-
-.gnav-navitem.large-nav .icon-link a img{
-    width: 26px;
-    margin-right: 15px;
-}
-
-.gnav-navitem.large-nav .icon-link .link-block,
-.gnav-navitem.large-nav .icon-link .link-block picture {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-}
-
-.gnav-navitem.large-nav.gnav-navitem.has-Menu.is-Open .icon-link .link-block picture + div {
-    padding-left: 0;
-    line-height: 1.4;
-}
-
-.gnav-navitem.large-nav .icon-link .link-block p {
-    margin: 0;
-}
-
-.gnav-navitem.large-nav .icon-link .link-block  p:last-of-type {
-    font-size: 13px;
-    font-weight: 300;
-    color: #656565;
-}
-/*
- * End large and Section Menu styles
-*/
-
 @media (min-width: 1200px) {
   .gnav {
     grid-template-areas: 'brand navlist search profile logo';
@@ -590,7 +517,7 @@ button.gnav-toggle:after {
 
   .gnav-navitem strong a {
     justify-content: center;
-    margin: 24px 0;
+    margin: 24px 0 24px 20px;
   }
 
   .gnav-navitem-menu.medium-Variant {
@@ -599,10 +526,6 @@ button.gnav-toggle:after {
 
   .gnav-navitem-menu > * {
     grid-row: 1;
-  }
-
-  .gnav-navitem-menu a {
-    padding: 6px 20px;
   }
 
   .gnav-navitem.has-Menu.is-Open .gnav-navitem-menu {
@@ -646,52 +569,10 @@ button.gnav-toggle:after {
     position: absolute;
     top: 100%;
   }
-  /*
-   * Large and Section Menu styles
-  */
-  .gnav .section-nav {
-    border-left: 1px solid #EBEBEB;
-    border-right: 1px solid #EBEBEB;
-  }
-
-  .gnav-navitem.has-Menu.is-Open .gnav-menu-container,
-  .gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant:scope > div {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      padding: 40px 20px 60px;
-      width: 1200px;
-      margin: 0 auto;
-  }
-
-  .gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant > div div h5 {
-      margin-top: 0;
-  }
-
-  .gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant > div div ul + h5,
-  .gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant > div div h5 + h5,
-  .gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant > div div + h5 {
-      margin-top: 32px;
-  }
-
-  .gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant > div > div:not(.gnav-promo) {
-      padding-left: 10px;
-  }
-  
-  .gnav-navitem.has-Menu.is-Open .gnav-navitem-menu > div div:first-child{
-      padding-left: 0;
-  }
-  /*
-   * End large and Section Menu styles
-  */
 }
 
 @media (min-width: 1440px) {
   .gnav, .gnav-search-field, .gnav-search-results {
     max-width: 1440px;
-  }
-
-  .gnav-navitem.has-Menu.is-Open .large-Variant .gnav-menu-container {
-    width: 1440px;
   }
 }
