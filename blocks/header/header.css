@@ -510,6 +510,11 @@ button.gnav-toggle:after {
     position: relative;
   }
 
+  .gnav-navitem.section {
+    border-left: 1px solid #EBEBEB;
+    border-right: 1px solid #EBEBEB;
+  }
+
   .gnav-navitem a {
     justify-content: unset;
     line-height: 24px;
