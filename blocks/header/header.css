@@ -39,6 +39,12 @@ header .gnav {
   overflow: scroll;
 }
 
+.gnav strong a {
+  color: #FFFFFF;
+  text-align: center;
+  justify-content: center;
+}
+
 button.gnav-toggle {
   grid-area: toggle;
   font-size: 20px;
@@ -111,7 +117,7 @@ button.gnav-toggle:after {
   justify-content: space-between;
   align-items: center;
   padding: 20px 20px;
-  color: rgb(44, 44, 44);
+  color: #4B4B4B;
   transition: background-color .1s ease;
 }
 
@@ -158,7 +164,7 @@ button.gnav-toggle:after {
 }
 
 .gnav-navitem-menu a {
-  padding: 12px 20px;
+  padding: 6px 20px;
   white-space: nowrap;
 }
 
@@ -506,7 +512,12 @@ button.gnav-toggle:after {
 
   .gnav-navitem a {
     justify-content: unset;
-    line-height: 1.5;
+    line-height: 24px;
+  }
+
+  .gnav-navitem strong a {
+    justify-content: center;
+    margin: 24px 0 24px 20px;
   }
 
   .gnav-navitem-menu.medium-Variant {
@@ -515,10 +526,6 @@ button.gnav-toggle:after {
 
   .gnav-navitem-menu > * {
     grid-row: 1;
-  }
-
-  .gnav-navitem-menu a {
-    padding: 6px 20px;
   }
 
   .gnav-navitem.has-Menu.is-Open .gnav-navitem-menu {
