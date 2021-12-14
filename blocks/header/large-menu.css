@@ -76,11 +76,6 @@
 }
 
 @media (min-width: 1200px) {
-  .gnav .large-menu.section {
-    border-left: 1px solid #EBEBEB;
-    border-right: 1px solid #EBEBEB;
-  }
-
   .gnav-navitem.has-Menu.is-Open .gnav-menu-container,
   .gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant:scope > div {
       display: flex;

@@ -1,15 +1,15 @@
 const envs = {
   stage: {
-      ims: 'stg1',
-      adminconsole: 'stage.adminconsole.adobe.com',
-      account: 'stage.account.adobe.com',
-      target: false,
+    ims: 'stg1',
+    adminconsole: 'stage.adminconsole.adobe.com',
+    account: 'stage.account.adobe.com',
+    target: false,
   },
   prod: {
-      ims: 'prod',
-      adminconsole: 'adminconsole.adobe.com',
-      account: 'account.adobe.com',
-      target: true,
+    ims: 'prod',
+    adminconsole: 'adminconsole.adobe.com',
+    account: 'account.adobe.com',
+    target: true,
   },
 };
 
@@ -22,7 +22,7 @@ export function getEnv() {
   if (!envName) envName = 'prod';
   const env = envs[envName];
   if (env) {
-      env.name = envName;
+    env.name = envName;
   }
   return env;
 }
@@ -33,7 +33,6 @@ export function makeLinkRelative(href) {
   if (host.endsWith('.page') || host.endsWith('.live') || host === 'gnav.adobe.com') return (`${url.pathname}${url.search}${url.hash}`);
   return (href);
 }
-
 
 /**
  * Retrieves the content of a metadata tag.
@@ -135,7 +134,7 @@ export async function loadBlock(block, eager = false) {
       });
       await Promise.all([cssLoaded, decorationComplete]);
     } catch (err) {
-      debug(`failed to load module for ${blockName}`, err);
+      console.log(`failed to load module for ${blockName}`, err);
     }
     block.setAttribute('data-block-status', 'loaded');
     block.classList.add('block-visible');
