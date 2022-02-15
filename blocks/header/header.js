@@ -38,9 +38,11 @@ class Gnav {
     }
 
     const mainNav = this.decorateMainNav();
-    if (mainNav) {
-      nav.append(mainNav);
+    const cta = this.decorateCta();
+    if (cta) {
+      mainNav.append(cta);
     }
+    nav.append(mainNav);
 
     const search = this.decorateSearch();
     if (search) {
@@ -113,15 +115,15 @@ class Gnav {
   }
 
   decorateMainNav = () => {
+    const mainNav = createTag('div', { class: 'gnav-mainnav' });
     const mainLinks = this.body.querySelectorAll('h2 > a');
     if (mainLinks.length > 0) {
-      return this.buildMainNav(mainLinks);
+      this.buildMainNav(mainNav, mainLinks);
     }
-    return null;
+    return mainNav;
   }
 
-  buildMainNav = (navLinks) => {
-    const mainNav = createTag('div', { class: 'gnav-mainnav' });
+  buildMainNav = (mainNav, navLinks) => {
     navLinks.forEach((navLink, idx) => {
       navLink.href = makeLinkRelative(navLink.href);
       const navItem = createTag('div', { class: 'gnav-navitem' });
@@ -230,6 +232,15 @@ class Gnav {
         navItem.appendChild(decoratedMenu);
       }
     });
+  }
+
+  decorateCta = () => {
+    const cta = this.body.querySelector('strong > a');
+    if (cta) {
+      cta.parentElement.classList.add('gnav-cta');
+      return cta.parentElement;
+    }
+    return null;
   }
 
   decorateSearch = () => {
