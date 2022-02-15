@@ -28,12 +28,15 @@
 }
 
 .gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant > div > div > h5 {
-  margin: 32px 0 0 0;
+  margin: 6px 6px 12px 12px;
 }
 
-.gnav-navitem.has-Menu.is-Open .gnav-navitem-menu.large-Variant > div div:first-of-type h5 {
-  margin-top: 0;
-  margin-right: 5px;
+.gnav-navitem.large-menu .gnav-navitem-menu a {
+  padding: 16px 20px;
+}
+
+.gnav-navitem.large-menu .gnav-navitem-menu strong a {
+  padding: 0 20px;
 }
 
 .gnav-navitem.large-menu .link-group {
@@ -80,7 +83,8 @@
     position: static;
   }
 
-  .gnav-navitem-menu a.link-block {
+  .gnav-navitem.large-menu .gnav-navitem-menu a.link-block,
+  .gnav-navitem.large-menu .gnav-navitem-menu a {
     padding: 6px 20px;
   }
 

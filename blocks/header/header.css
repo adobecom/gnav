@@ -47,6 +47,12 @@ header .gnav {
   line-height: 32px;
 }
 
+.gnav strong a:hover {
+  color: #FFF;
+  background-color: #0d66d0;
+  border-color: #0d66d0;
+}
+
 button.gnav-toggle {
   grid-area: toggle;
   font-size: 20px;
@@ -183,7 +189,7 @@ button.gnav-toggle:after {
   list-style: none;
 }
 
-/* .gnav-navitem.has-Menu.is-Open > a {
+.gnav-navitem.has-Menu.is-Open > a {
   padding: 20px 24px;
   font-weight: 700;
   position: relative;
@@ -199,7 +205,7 @@ button.gnav-toggle:after {
   bottom: 0;
   display: block;
   border-bottom: 1px solid #D1D1D1;
-} */
+}
 
 .gnav-navitem-menu a {
   padding: 12px 36px;
@@ -601,13 +607,14 @@ button.gnav-toggle:after {
     box-shadow: 0px 3px 3px rgb(0 0 0 / 20%);
   }
 
-  .gnav-navitem.has-Menu.is-Open:before {
-    all: unset;
+  .gnav-navitem.has-Menu.is-Open > a {
+    font-weight: unset;
+    padding: 20px;
   }
 
-  /* .gnav-navitem.has-Menu.is-Open > a {
-    all: unset;
-  } */
+  .gnav-navitem.has-Menu.is-Open > a:before {
+    display: none;
+  }
 
   .gnav-cta {
     display: flex;
