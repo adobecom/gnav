@@ -427,12 +427,14 @@ export default async function init(blockEl) {
   const html = await fetchGnav(url);
   if (html) {
     try {
+      const initEvent = new Event('gnav.init');
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, 'text/html');
       cleanVariations(doc);
       decorateAnchors(doc);
       const gnav = new Gnav(doc.body, blockEl);
       gnav.init();
+      blockEl.dispatchEvent(initEvent);
     } catch (e) {
       console.log('Could not great global navigation', e);
     }
