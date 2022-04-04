@@ -427,7 +427,7 @@ export default async function init(blockEl) {
   const html = await fetchGnav(url);
   if (html) {
     try {
-      const initEvent = new Event('gnav.init');
+      const initEvent = new Event('gnav:init');
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, 'text/html');
       cleanVariations(doc);
